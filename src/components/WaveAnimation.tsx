@@ -3,8 +3,10 @@ import React from "react";
 
 export function WaveAnimation() {
   return (
-    // bottom 값을 음수로 조정하여 파도를 위로 이동시킵니다.
-    <div className="absolute bottom-[100] left-0 w-full pointer-events-none">
+    <div
+      className="absolute left-0 w-full pointer-events-none 
+                    bottom-10 md:bottom-[100px]"
+    >
       <div className="relative w-full h-auto">
         {/* 파도 레이어 1 - 가장 뒤쪽 */}
         <svg

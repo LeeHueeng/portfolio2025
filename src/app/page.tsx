@@ -12,7 +12,8 @@ export default function Page() {
           <h1 className="text-2xl font-bold tracking-tight text-gray-800">
             이현우 포트폴리오
           </h1>
-          <nav>
+          {/* 모바일에서는 네비게이션 숨김 */}
+          <nav className="hidden md:block">
             <ul className="flex gap-5">
               <li>
                 <a
@@ -58,7 +59,6 @@ export default function Page() {
           </nav>
         </div>
       </header>
-
       <section
         id="hero"
         className="relative flex items-center justify-center text-center bg-gradient-to-r from-blue-50 to-indigo-100 py-16 px-4 overflow-hidden"
