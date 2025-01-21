@@ -305,9 +305,7 @@ export default function Page() {
           <p className="text-gray-500 text-sm">
             © {new Date().getFullYear()} Lee Hyunwoo. All rights reserved.
           </p>
-          <p className="text-gray-500 text-sm">
-            Made with Next.js & Tailwind CSS
-          </p>
+          <p className="text-gray-500 text-sm">next.js & tailwindcss</p>
         </div>
       </footer>
     </main>
