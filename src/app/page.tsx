@@ -3,7 +3,15 @@
 import React from "react";
 import "./globals.css"; // 글로벌 스타일 불러오기
 import { WaveAnimation } from "../components/WaveAnimation";
-
+export const metadata = {
+  title: "이현우 포트폴리오",
+  description: "이현우의 포트폴리오 사이트입니다.",
+  openGraph: {
+    title: "이현우 포트폴리오",
+    description: "이현우의 포트폴리오 사이트입니다.",
+    images: ["/path/to/preview-image.jpg"],
+  },
+};
 export default function Page() {
   return (
     <main className="min-h-screen w-full flex flex-col">
