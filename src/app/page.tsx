@@ -1,5 +1,3 @@
-"use client";
-
 import React from "react";
 import "./globals.css"; // 글로벌 스타일 불러오기
 import { WaveAnimation } from "../components/WaveAnimation";
