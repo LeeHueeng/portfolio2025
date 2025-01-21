@@ -2,6 +2,7 @@
 
 import React from "react";
 import "./globals.css"; // 글로벌 스타일 불러오기
+import { WaveAnimation } from "../components/WaveAnimation";
 
 export default function Page() {
   return (
@@ -59,10 +60,10 @@ export default function Page() {
       </header>
 
       <section
-        className="flex items-center justify-center text-center bg-gradient-to-r from-blue-50 to-indigo-100 py-16 px-4"
         id="hero"
+        className="relative flex items-center justify-center text-center bg-gradient-to-r from-blue-50 to-indigo-100 py-16 px-4 overflow-hidden"
       >
-        <div className="max-w-3xl mx-auto">
+        <div className="max-w-3xl mx-auto z-10">
           <h2 className="text-3xl sm:text-5xl font-extrabold mb-4 text-gray-900">
             안녕하세요, <br className="hidden sm:block" />
             <span className="text-blue-600">Software Engineer</span>{" "}
@@ -80,8 +81,9 @@ export default function Page() {
             Get in Touch
           </a>
         </div>
+        {/* 파도 애니메이션은 뒤에 존재하되, z-index 조정으로 콘텐츠 뒤에 위치 */}
+        <WaveAnimation />
       </section>
-
       <section
         id="about"
         className="container mx-auto px-4 py-16 flex flex-col gap-8"

@@ -3,9 +3,33 @@
 @tailwind components;
 @tailwind utilities;
 
-/* 추가 전역 스타일 (예시) */
 body {
   font-family: "Inter", system-ui, Avenir, Helvetica, Arial, sans-serif;
   color: #333;
   background-color: #f8fafc;
+}
+
+/* 파도 애니메이션 */
+@keyframes wave {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(-25%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.animate-wave {
+  animation: wave 8s ease-in-out infinite;
+}
+
+/* 각 파도 레이어에 대한 딜레이 (애니메이션 시간 차이) */
+.delay-1 {
+  animation-delay: -2s;
+}
+.delay-2 {
+  animation-delay: -4s;
 }
