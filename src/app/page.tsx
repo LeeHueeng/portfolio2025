@@ -26,7 +26,7 @@ export default function Page() {
                   href="#about"
                   className="text-gray-700 hover:text-blue-500 transition-colors"
                 >
-                  About
+                  저에 대해
                 </a>
               </li>
               <li>
@@ -34,7 +34,7 @@ export default function Page() {
                   href="#activity"
                   className="text-gray-700 hover:text-blue-500 transition-colors"
                 >
-                  Activity
+                  활동
                 </a>
               </li>
               <li>
@@ -42,7 +42,7 @@ export default function Page() {
                   href="#skills"
                   className="text-gray-700 hover:text-blue-500 transition-colors"
                 >
-                  Skills
+                  기술
                 </a>
               </li>
               <li>
@@ -50,7 +50,7 @@ export default function Page() {
                   href="#projects"
                   className="text-gray-700 hover:text-blue-500 transition-colors"
                 >
-                  Projects
+                  프로젝트
                 </a>
               </li>
               <li>
@@ -58,7 +58,7 @@ export default function Page() {
                   href="#contact"
                   className="text-gray-700 hover:text-blue-500 transition-colors"
                 >
-                  Contact
+                  연락처
                 </a>
               </li>
             </ul>
@@ -84,7 +84,7 @@ export default function Page() {
             href="#contact"
             className="inline-block bg-blue-600 text-white px-6 py-3 rounded-md shadow hover:bg-blue-700 transition-colors"
           >
-            Get in Touch
+            🤣 연락처
           </a>
         </div>
         {/* 파도 애니메이션은 뒤에 존재하되, z-index 조정으로 콘텐츠 뒤에 위치 */}
@@ -94,7 +94,9 @@ export default function Page() {
         id="about"
         className="container mx-auto px-4 py-16 flex flex-col gap-8"
       >
-        <h3 className="text-2xl font-bold mb-4 text-gray-800">About Me</h3>
+        <h3 className="text-2xl font-bold mb-4 text-gray-800">
+          저에 대해 소개합니다.
+        </h3>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div className="space-y-4">
             <p className="text-gray-700">
@@ -137,13 +139,29 @@ export default function Page() {
           </div>
         </div>
       </section>
+      <section
+        id="education"
+        className="container mx-auto px-4 py-16 border-t border-gray-200"
+      >
+        <h3 className="text-2xl font-bold mb-8 text-gray-800">학력</h3>
+        <div className="space-y-6">
+          <div className="bg-white p-6 rounded-lg shadow">
+            <h4 className="text-xl font-semibold text-gray-800">
+              성공회대학교
+            </h4>
+            <p className="text-gray-600">서울시 구로구</p>
+            <p className="text-gray-700">소프트웨어 공학 학사</p>
+            <p className="text-gray-700">디지털 콘텐츠 공학 학사</p>
+          </div>
+        </div>
+      </section>
 
       <section
         id="activity"
         className="bg-white py-16 px-4 border-t border-gray-200"
       >
         <div className="container mx-auto">
-          <h3 className="text-2xl font-bold mb-8 text-gray-800">Activities</h3>
+          <h3 className="text-2xl font-bold mb-8 text-gray-800">활동</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div className="bg-gray-50 p-6 rounded-lg shadow hover:shadow-md transition-shadow">
               <h4 className="text-lg font-semibold text-gray-800 mb-2">
@@ -153,6 +171,8 @@ export default function Page() {
                 2024년 10월 ~ 재직중 <br />
                 기획 및 Front 유지보수 및 개발 <br />
                 React, Next.js, Figma, Flutter
+                <br />
+                기획 & 프론트엔드 개발
               </p>
             </div>
             <div className="bg-gray-50 p-6 rounded-lg shadow hover:shadow-md transition-shadow">
@@ -162,7 +182,8 @@ export default function Page() {
               <p className="text-sm text-gray-600">
                 2023년 09월 ~ 2024년 2월 <br />
                 Next.js, styled-components, TypeScript 등 <br />
-                디자인 및 프론트엔드 팀 협업 프로젝트 진행
+                디자인 및 프론트엔드 팀 협업 프로젝트 진행 <br />
+                프론트엔드 개발
               </p>
             </div>
             <div className="bg-gray-50 p-6 rounded-lg shadow hover:shadow-md transition-shadow">
@@ -171,7 +192,8 @@ export default function Page() {
               </h4>
               <p className="text-sm text-gray-600">
                 2023년 03월 ~ 2023년 09월 <br />
-                React.js, TypeScript, Emotion 등 프론트엔드 기술 강의
+                React.js, TypeScript, Emotion 등 프론트엔드 기술 강의 <br />
+                프론트엔드 개발, 강의, 기획 강의
               </p>
             </div>
             <div className="bg-gray-50 p-6 rounded-lg shadow hover:shadow-md transition-shadow">
@@ -191,7 +213,7 @@ export default function Page() {
         id="skills"
         className="container mx-auto px-4 py-16 border-t border-gray-200"
       >
-        <h3 className="text-2xl font-bold mb-8 text-gray-800">Skills</h3>
+        <h3 className="text-2xl font-bold mb-8 text-gray-800">기술</h3>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div className="space-y-4">
             <h4 className="text-xl font-semibold text-gray-800">Based</h4>
@@ -215,55 +237,105 @@ export default function Page() {
         className="bg-white py-16 px-4 border-t border-gray-200"
       >
         <div className="container mx-auto">
-          <h3 className="text-2xl font-bold mb-8 text-gray-800">Projects</h3>
+          <h3 className="text-2xl font-bold mb-8 text-gray-800">프로젝트</h3>
 
           <ProjectCard
             title="DomiDomi"
             period="2023년 06월 ~ 2023년 11월"
             description="기숙사 근로 중 기존 시스템의 비효율을 줄이기 위해 제작한 웹 서비스"
             team="FE 2명, BE 2명"
+            role="프로젝트 대표, 프론트엔드 (70%), 기획(100%), 디자인(100%)"
             tech="Next.js, TypeScript, emotion, axios, Vercel, EC2 등"
             url="https://domidomis.duckdns.org/user/home"
             gitFE="https://github.com/DominestSKHU/Frontend"
             gitBE="https://github.com/DominestSKHU/Backend"
-            notion="https://www.notion.so/Dominest-0c231effb7"
+            notion="https://bright-trawler-c11.notion.site/Dominest-0c231effb7924f8ba66c1bf87e9123af?pvs=4"
           />
           <ProjectCard
             title="포잇 캘린더"
             period="2023년 09월 ~ 2024년 2월"
             description="구글 일정관리를 위한 웹서비스"
             team="FE 3명, BE 4명, Design 2명"
+            role="프론트엔드 (30%)"
             tech="Next.js, TypeScript, styled-components, axios, Vercel 등"
             url="https://www.jmgdh.duckdns.org/test"
             gitFE="https://github.com/codingBottle/JMGDH_Web"
-            notion="https://wise-twilight-aaf.notion.site/ecc375a"
+            notion="https://wise-twilight-aaf.notion.site/ecc375a65e8d46b3a9bb742280f0ce0a?v=1f09f56fb7e049d3840099d51971895a"
           />
           <ProjectCard
             title="알(뜰마)법사"
             period="2024년 03월 ~ 2024년 7월"
             description="자취 생활 중 고물가 시대에 절약을 위해 만든 웹 서비스"
             team="FE 1명, BE 1명, Design 1명"
+            role="프론트엔드 (100%), 기획 (100%)"
             tech="Next.js, TypeScript, styled-components, axios, Vercel 등"
             url="https://albeobsa-front.vercel.app/"
             gitFE="https://github.com/jijijig/albeobsa-Front"
-            notion="https://www.notion.so/6954e27ab79e428eb72bcf5610fc0212"
+            notion="https://www.notion.so/https://private-wallaby-931.notion.site/6954e27ab79e428eb72bcf5610fc0212?pvs=4"
+          />
+          <ProjectCard
+            title="HashKey Fun Fronte"
+            period="2024년 12월 ~ 2024년 12월"
+            description="해시키 체인을 연결하여 밈코인 거래 플랫폼을 개발하였습니다. 이 프로젝트는 해시키 해커톤에서 미래상을 수상하였습니다."
+            team="FE 1명, BE 1명, Design 1명"
+            role="프론트엔드 (100%)"
+            tech="Next.js, Web3.0, TypeScript, styled-components, axios, Vercel 등"
+            url="https://hash-key-fun-fronte.vercel.app/"
+            gitFE="https://github.com/LeeHueeng/HashKeyFun_Fronte/tree/main"
+            notion="https://wise-twilight-aaf.notion.site/11f88e74500d806eabc1fbcd983cce96"
           />
         </div>
+
+        <section
+          id="awards"
+          className="container mx-auto px-4 py-16  border-t border-gray-200"
+        >
+          <h3 className="text-2xl font-bold mb-8 text-gray-800">수상이력</h3>
+          <ul className="space-y-4">
+            <li className="bg-white p-6 rounded-lg shadow">
+              <h4 className="text-xl font-semibold text-gray-800">
+                GoodWin Incubating 창업동아리 프로젝트 선정
+              </h4>
+              <p className="text-gray-600">2023년 2월</p>
+            </li>
+            <li className="bg-white p-6 rounded-lg shadow">
+              <h4 className="text-xl font-semibold text-gray-800">
+                성공회대학교 IT 경진대회 최우수상 수상
+              </h4>
+              <p className="text-gray-600">2023년</p>
+            </li>
+            <li className="bg-white p-6 rounded-lg shadow">
+              <h4 className="text-xl font-semibold text-gray-800">
+                GoodWind Incubating 창업동아리 프로젝트 선정
+              </h4>
+              <p className="text-gray-600">2024년 2월</p>
+            </li>
+            <li className="bg-white p-6 rounded-lg shadow">
+              <h4 className="text-xl font-semibold text-gray-800">
+                해시키 해커톤 미래상 수상
+              </h4>
+              <p className="text-gray-600">2024년 12월</p>
+            </li>
+          </ul>
+        </section>
       </section>
 
       <section
         id="contact"
         className="container mx-auto px-4 py-16 border-t border-gray-200"
       >
-        <h3 className="text-2xl font-bold mb-8 text-gray-800">Contact</h3>
+        <h3 className="text-2xl font-bold mb-8 text-gray-800">연락처</h3>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {/* Contact Info */}
           <div className="space-y-4 text-gray-700">
             <p>
+              <strong className="text-gray-800">이름:</strong> 이현우
+            </p>
+            <p>
               <strong className="text-gray-800">Phone:</strong> 010-8408-4111
             </p>
             <p>
-              <strong className="text-gray-800">Email:</strong>{" "}
+              <strong className="text-gray-800">Email:</strong>
               <a
                 href="mailto:zzxx373014@gmail.com"
                 className="underline hover:text-blue-500"
@@ -272,7 +344,7 @@ export default function Page() {
               </a>
             </p>
             <p>
-              <strong className="text-gray-800">Github:</strong>{" "}
+              <strong className="text-gray-800">Github:</strong>
               <a
                 href="https://github.com/LeeHueeng"
                 className="underline hover:text-blue-500"
@@ -311,9 +383,11 @@ export default function Page() {
       <footer className="bg-white border-t border-gray-200">
         <div className="container mx-auto px-4 py-6 flex flex-col md:flex-row justify-between items-center">
           <p className="text-gray-500 text-sm">
-            © {new Date().getFullYear()} Lee Hyunwoo. All rights reserved.
+            © {new Date().getFullYear()} Hueeng
           </p>
-          <p className="text-gray-500 text-sm">next.js & tailwindcss</p>
+          <p className="text-gray-500 text-sm">
+            next.js 와 tailwindcss로 제작되었습니다.
+          </p>
         </div>
       </footer>
     </main>
@@ -326,6 +400,7 @@ type ProjectCardProps = {
   description: string;
   team: string;
   tech: string;
+  role: string;
   url?: string;
   gitFE?: string;
   gitBE?: string;
@@ -338,6 +413,7 @@ function ProjectCard({
   description,
   team,
   tech,
+  role,
   url,
   gitFE,
   gitBE,
@@ -354,6 +430,9 @@ function ProjectCard({
         </li>
         <li>
           <strong>Tech:</strong> {tech}
+        </li>
+        <li>
+          <strong>Role:</strong> {role}
         </li>
       </ul>
       <div className="flex flex-wrap gap-4 mt-4">
