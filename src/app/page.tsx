@@ -337,10 +337,10 @@ export default function Page() {
             <p>
               <strong className="text-gray-800">Email:</strong>
               <a
-                href="mailto:zzxx373014@gmail.com"
+                href="mailto:hi@hueeng.com"
                 className="underline hover:text-blue-500"
               >
-                zzxx373014@gmail.com
+                hi@hueeng.com
               </a>
             </p>
             <p>
@@ -364,6 +364,14 @@ export default function Page() {
               >
                 hueeng.tistory.com
               </a>
+              <a
+                href="https://blog.naver.com/hueeng-259"
+                className="underline hover:text-blue-500"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                naver.blog
+              </a>
             </p>
           </div>
           <div className="bg-gray-50 p-6 rounded-md shadow">
@@ -371,7 +379,7 @@ export default function Page() {
               프로젝트나 협업 제안 등 편하게 연락주세요.
             </p>
             <a
-              href="mailto:zzxx373014@gmail.com"
+              href="mailto:hi@hueeng.com"
               className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition-colors"
             >
               이메일 보내기
