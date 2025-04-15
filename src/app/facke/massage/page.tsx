@@ -104,7 +104,7 @@ export default function KakaoSharePage() {
       const status = {
         initialized: window.Kakao.isInitialized(),
         hasLink: Boolean(window.Kakao.Link),
-        apiKey: "ae68dd0da47503900b825b210425cb40",
+        apiKey: "bf2709c41f2f2de15ee6beaa268972e3",
       };
 
       console.log("카카오 상태:", status);
