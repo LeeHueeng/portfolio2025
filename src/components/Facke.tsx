@@ -1,22 +1,78 @@
 "use client";
 import React, { useEffect, useRef, useState } from "react";
+import Image from "next/image";
 
-// 네이버 맵 타입 정의
+// 네이버 맵 타입 정의 (any 대신 구체적인 타입 사용)
 declare global {
   interface Window {
     naver?: {
       maps: {
-        Map: any;
-        Marker: any;
-        LatLng: any;
-        InfoWindow: any;
-        Event: any;
+        Map: new (element: HTMLElement, options: NaverMapOptions) => NaverMap;
+        Marker: new (options: NaverMarkerOptions) => NaverMarker;
+        LatLng: new (lat: number, lng: number) => NaverLatLng;
+        InfoWindow: new (options: NaverInfoWindowOptions) => NaverInfoWindow;
+        Event: {
+          addListener: (
+            target: object,
+            eventName: string,
+            handler: (...args: any[]) => void
+          ) => void;
+        };
         Position: {
-          TOP_RIGHT: any;
+          TOP_RIGHT: string;
         };
       };
     };
   }
+}
+
+// 네이버 맵 관련 인터페이스 정의
+interface NaverLatLng {
+  x: number;
+  y: number;
+  lat(): number;
+  lng(): number;
+}
+
+interface NaverMapOptions {
+  center: NaverLatLng;
+  zoom: number;
+  zoomControl?: boolean;
+  zoomControlOptions?: {
+    position: string;
+  };
+}
+
+interface NaverMap {
+  setCenter(latlng: NaverLatLng): void;
+  setZoom(level: number): void;
+  getCenter(): NaverLatLng;
+}
+
+interface NaverMarkerOptions {
+  position: NaverLatLng;
+  map: NaverMap;
+  title?: string;
+}
+
+interface NaverMarker {
+  setPosition(latlng: NaverLatLng): void;
+  setMap(map: NaverMap | null): void;
+  getMap(): NaverMap | null;
+}
+
+interface NaverInfoWindowOptions {
+  content: string;
+  maxWidth?: number;
+  backgroundColor?: string;
+  borderColor?: string;
+  borderWidth?: number;
+}
+
+interface NaverInfoWindow {
+  open(map: NaverMap, marker: NaverMarker): void;
+  close(): void;
+  getMap(): NaverMap | null;
 }
 
 type FlyingIconProps = {
@@ -44,7 +100,7 @@ type FackeProps = {
 export default function Facke({ mapImageUrl, locationAddress }: FackeProps) {
   // 지도 관련 상태와 ref
   const mapRef = useRef<HTMLDivElement>(null);
-  const naverMapRef = useRef<any>(null);
+  const naverMapRef = useRef<NaverMap | null>(null);
   const [isNaverLoaded, setIsNaverLoaded] = useState(false);
 
   // 네이버 지도 초기화
@@ -114,12 +170,12 @@ export default function Facke({ mapImageUrl, locationAddress }: FackeProps) {
           if (infoWindow.getMap()) {
             infoWindow.close();
           } else {
-            infoWindow.open(naverMapRef.current, marker);
+            infoWindow.open(naverMapRef.current as NaverMap, marker);
           }
         });
 
         // 초기에 정보창 표시
-        infoWindow.open(naverMapRef.current, marker);
+        infoWindow.open(naverMapRef.current as NaverMap, marker);
       } catch (error) {
         console.error("네이버 지도 초기화 오류:", error);
         setIsNaverLoaded(false);
@@ -186,7 +242,7 @@ export default function Facke({ mapImageUrl, locationAddress }: FackeProps) {
     window.location.href = naverMapUrl;
   };
 
-  // 구글 지도 앱 열기
+  // 구글 지도 앱 열기 - 사용 중인 버튼에 추가
   const openGoogleMap = () => {
     const googleMapUrl = `https://www.google.com/maps/dir/?api=1&destination=${destinationCoords.lat},${destinationCoords.lng}&travelmode=driving`;
     window.location.href = googleMapUrl;
@@ -296,15 +352,17 @@ export default function Facke({ mapImageUrl, locationAddress }: FackeProps) {
           >
             {/* 지도가 로드되지 않은 경우 폴백 이미지 표시 */}
             {!isNaverLoaded && mapImageUrl && (
-              <img
-                src={mapImageUrl}
-                alt="돈내고 돈먹기 위치"
-                style={{
-                  width: "100%",
-                  height: "100%",
-                  objectFit: "cover",
-                }}
-              />
+              <div
+                style={{ position: "relative", width: "100%", height: "100%" }}
+              >
+                <Image
+                  src={mapImageUrl}
+                  alt="돈내고 돈먹기 위치"
+                  fill
+                  style={{ objectFit: "cover" }}
+                  unoptimized // base64 이미지는 이미 최적화되어 있으므로
+                />
+              </div>
             )}
           </div>
         </div>
@@ -396,6 +454,36 @@ export default function Facke({ mapImageUrl, locationAddress }: FackeProps) {
             }}
           >
             <span style={{ fontSize: "1.2em" }}>🧭</span> 네이버 지도로 길찾기
+          </button>
+
+          {/* 구글 지도 버튼 추가 */}
+          <button
+            onClick={openGoogleMap}
+            style={{
+              padding: "12px 20px",
+              fontSize: "1em",
+              fontWeight: "bold",
+              borderRadius: "8px",
+              border: "none",
+              backgroundColor: "#4285F4",
+              color: "#fff",
+              cursor: "pointer",
+              display: "flex",
+              alignItems: "center",
+              gap: "8px",
+              boxShadow: "0 4px 8px rgba(0,0,0,0.1)",
+              transition: "all 0.2s",
+            }}
+            onMouseOver={(e) => {
+              e.currentTarget.style.transform = "translateY(-3px)";
+              e.currentTarget.style.boxShadow = "0 6px 12px rgba(0,0,0,0.15)";
+            }}
+            onMouseOut={(e) => {
+              e.currentTarget.style.transform = "translateY(0)";
+              e.currentTarget.style.boxShadow = "0 4px 8px rgba(0,0,0,0.1)";
+            }}
+          >
+            <span style={{ fontSize: "1.2em" }}>🌎</span> 구글 지도로 길찾기
           </button>
         </div>
 

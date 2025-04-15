@@ -1,5 +1,4 @@
 import React from "react";
-import { headers } from "next/headers";
 
 export const metadata = {
   title: "아무말 초대장: 돈내고 돈먹기 모임!",
