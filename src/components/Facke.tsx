@@ -111,7 +111,7 @@ export default function Facke({ mapImageUrl, locationAddress }: FackeProps) {
     // 네이버 지도 API 스크립트 로드
     const script = document.createElement("script");
     script.src =
-      "https://oapi.map.naver.com/openapi/v3/maps.js?ncpKeyId=yg0hqyljjy";
+      "https://oapi.map.naver.com/openapi/v3/maps.js?ncpClientId=yg0hqyljjy";
     script.async = true;
     script.onload = () => {
       setIsNaverLoaded(true);
