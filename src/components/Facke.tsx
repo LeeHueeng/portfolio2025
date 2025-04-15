@@ -2,6 +2,9 @@
 import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 
+// 네이버 맵 관련 이벤트 핸들러 타입
+type NaverEventHandler = (e: unknown) => void;
+
 // 네이버 맵 타입 정의 (any 대신 구체적인 타입 사용)
 declare global {
   interface Window {
@@ -15,7 +18,7 @@ declare global {
           addListener: (
             target: object,
             eventName: string,
-            handler: (...args: any[]) => void
+            handler: NaverEventHandler
           ) => void;
         };
         Position: {
