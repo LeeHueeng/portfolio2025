@@ -1,7 +1,44 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Script from "next/script";
+
+// 카카오 API 공유 옵션 인터페이스 정의
+interface KakaoShareDefaultOptions {
+  objectType: string;
+  container?: {
+    web_url?: string;
+    mobile_web_url?: string;
+    app_url?: string;
+  };
+  content: {
+    title: string;
+    description?: string;
+    image_url?: string;
+    link: {
+      web_url?: string;
+      mobile_web_url?: string;
+      android_execution_params?: string;
+      ios_execution_params?: string;
+    };
+  };
+  social?: {
+    like_count?: number;
+    comment_count?: number;
+    shared_count?: number;
+    view_count?: number;
+    subscriber_count?: number;
+  };
+  buttons?: Array<{
+    title: string;
+    link: {
+      web_url?: string;
+      mobile_web_url?: string;
+      android_execution_params?: string;
+      ios_execution_params?: string;
+    };
+  }>;
+}
 
 // 메타데이터는 클라이언트 컴포넌트에서 export할 수 없음
 // Next.js App Router에서는 별도의 metadata.ts 파일이나 layout.tsx에서 처리
@@ -143,7 +180,7 @@ declare global {
       isInitialized: () => boolean;
       Link: {
         sendCustom: (options: { templateId: number }) => void;
-        sendDefault: (options: any) => void;
+        sendDefault: (options: KakaoShareDefaultOptions) => void;
       };
     };
   }
