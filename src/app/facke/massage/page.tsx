@@ -43,6 +43,9 @@ interface KakaoShareDefaultOptions {
 // 메타데이터는 클라이언트 컴포넌트에서 export할 수 없음
 // Next.js App Router에서는 별도의 metadata.ts 파일이나 layout.tsx에서 처리
 
+// 카카오 API 키
+const KAKAO_JS_KEY = "bf2709c41f2f2de15ee6beaa268972e3";
+
 export default function KakaoSharePage() {
   const [sdkLoaded, setSdkLoaded] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -52,7 +55,7 @@ export default function KakaoSharePage() {
     try {
       if (window.Kakao && !window.Kakao.isInitialized()) {
         // 카카오 JavaScript 키 초기화
-        window.Kakao.init("ae68dd0da47503900b825b210425cb40");
+        window.Kakao.init(KAKAO_JS_KEY);
         console.log("카카오 SDK 초기화 성공");
       }
       setSdkLoaded(true);
@@ -104,7 +107,7 @@ export default function KakaoSharePage() {
       const status = {
         initialized: window.Kakao.isInitialized(),
         hasLink: Boolean(window.Kakao.Link),
-        apiKey: "bf2709c41f2f2de15ee6beaa268972e3",
+        apiKey: KAKAO_JS_KEY,
       };
 
       console.log("카카오 상태:", status);
