@@ -44,7 +44,7 @@ interface KakaoShareDefaultOptions {
 // Next.js App Router에서는 별도의 metadata.ts 파일이나 layout.tsx에서 처리
 
 // 카카오 API 키
-const KAKAO_JS_KEY = "bf2709c41f2f2de15ee6beaa268972e3";
+const KAKAO_JS_KEY = "24b0b230764c5057e1856fa17685ce62";
 
 export default function KakaoSharePage() {
   const [sdkLoaded, setSdkLoaded] = useState(false);
@@ -84,7 +84,7 @@ export default function KakaoSharePage() {
 
       // 카카오톡 공유하기
       window.Kakao.Link.sendCustom({
-        templateId: 119761, // 설정된 템플릿 ID
+        templateId: 119786, // 설정된 템플릿 ID
       });
 
       console.log("카카오톡 공유 요청 전송됨");
